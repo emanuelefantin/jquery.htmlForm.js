@@ -29,7 +29,8 @@
 			options = $.extend({}, defaults, options);
 			//clone the element to not overwrite it
 			var container = $(this).clone();
-
+			
+			//set values to all inputs
 			//input
 			container.find('input').each(function () {
 				this.setAttribute('value', this.value);
@@ -56,7 +57,7 @@
 				$(this).html($(this).val());
 			});
 
-			//if required return the full form element
+			//if required get the full form element
 			if (options.full) {
 				container = $('<div>').append(container);
 			}
