@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Jquery FormHtml</title>
+		<meta name="author" content="Emanuele Fantin">
+		<style type="text/css">
+			.forms{
+				float:  left;
+			}
+			.single_form{
+				width: 250px;
+				height: 280px;
+				float: left;
+				border: 1px solid blue;
+				padding: 10px;
+			}
+			.commands{
+				height: 35px;
+				line-height: 35px;
+			}
+			.commands a{
+				margin-right: 5px;
+			}
+			.viewer{
+				/*position: relative;*/
+				float:  left;
+				margin-left: 10px;
+			}
+			.viewer textarea{
+				width: 500px;
+				height: 300px;
+				border: 2px solid green;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<p>
+				You can use $('#myFormId').htmlForm() to get the html of the form.
+				<br>
+				If you need the full form element use $('#myFormId').htmlForm({full:true});
+			</p>
+		</div>
+		<div class="forms">
+			<div class="single_form">
+				<div class="commands">
+					<a href="#" data-box_id="box_1">Show Html</a>
+					<a href="#" data-box_id="box_1" data-full="1">Show Html with Form</a>
+				</div>
+				<form id="box_1">
+					<input type="text" value="A text box" /><br />
+					<input type="checkbox" value="1" /><br />
+					<textarea>Some text form 1</textarea><br />
+					<select>
+						<option>This is an option</option>
+						<option>So is this</option>
+						<option>And this</option>
+					</select>
+					<div>
+						<input id="butt" type="button" value="Test" />
+					</div>
+				</form>
+			</div>
+			<div class="single_form">
+				<div class="commands">
+					<a href="#" data-box_id="box_2">Show Html</a>
+					<a href="#" data-box_id="box_2" data-full="1">Show Html with Form</a>
+				</div>
+				<div id="box_2">
+					<input type="text" value="A text box" /><br />
+					<input type="checkbox" value="1" /><br />
+					<textarea>Some text form 2</textarea><br />
+					<select>
+						<option>This is an option</option>
+						<option>So is this</option>
+						<option>And this</option>
+					</select>
+					<div>
+						<input id="butt" type="button" value="Test" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="viewer">
+			<textarea></textarea>
+		</div>
+
+
+
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="../jquery.htmlForm.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$('.commands').find('a').click(function (e) {
+					e.preventDefault();
+					var options = {full:false};
+					if($(this).data('full') == 1){
+						options.full = true;
+					}
+					
+					var html = $('#' + $(this).data('box_id')).htmlForm(options);
+					$('.viewer > textarea').val(html.replace(/\t+/g, ""));
+				});
+			});
+		</script>
+	</body>
+</html>
