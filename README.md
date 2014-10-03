@@ -1,8 +1,8 @@
 jquery.htmlForm.js
 ==================
 
-Return a form as string, including form values like checked or selected
-that aren't returned using $.html().
+jQuery plugin that return a form as string, including form values like 
+checked or selected that aren't returned using $.html().
 
 Example:
 
@@ -11,7 +11,7 @@ var html_string = $('#myFormId').htmlForm();
 console.log(html_string);
 ```
 
-If you want also the <form> element itself use full:true
+If you want the complete string with the form element itself use full:true as option
 
 ```javascript
 var html_string = $('#myFormId').htmlForm({full:true});
