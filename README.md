@@ -17,3 +17,5 @@ If you want the complete string with the form element itself use full:true as op
 var html_string = $('#myFormId').htmlForm({full:true});
 console.log(html_string);
 ```
+
+Try demo/index.html to view the results
