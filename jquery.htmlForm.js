@@ -1,7 +1,8 @@
 /*!
  * jQuery htmlForm Plugin v1.0
  * https://github.com/emanuelefantin/jquery.htmlForm.js
- * Return html string inside a container including form values.
+ * Return a form as string, including form values like checked or selected
+ * that aren't returned using $.html()
  * 
  * Es.
  * var html_string = $('#myFormId').htmlForm();
